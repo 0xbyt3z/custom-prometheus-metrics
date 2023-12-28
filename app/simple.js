@@ -3,4 +3,4 @@ const app = require("express")();
 const metricsMiddleware = promBundle({ includeMethod: true });
 
 app.use(metricsMiddleware);
-app.listen(5050);
+app.listen(7000);
