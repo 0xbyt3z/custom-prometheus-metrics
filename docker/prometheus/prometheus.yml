@@ -1,0 +1,27 @@
+global:
+  scrape_interval: 5s
+  evaluation_interval: "5s"
+
+scrape_configs:
+  #- job_name: 'prometheus'
+    #static_configs:
+      #- targets: ['localhost:9090']
+
+  - job_name: 'test-app'
+    scheme: http
+    static_configs:
+      - targets: ['app:7000']
+
+rule_files:
+  - /etc/prometheus/groups/test-rule.yml
+
+storage:
+  tsdb:
+    # cannot set the path from the config but can pass CLI args to set the path    
+
+
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets: ['alertmanager:9093']

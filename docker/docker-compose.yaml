@@ -10,7 +10,7 @@ services:
       - monitoring
   prometheus:
     build:
-      context: .
+      context: ./prometheus
       dockerfile: Dockerfile
     ports:
       - "9090:9090"
@@ -23,6 +23,20 @@ services:
       - "3000:3000"
     environment:
       - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - prometheus
+    networks:
+      - monitoring
+
+  alertmanager:
+    image: prom/alertmanager
+    container_name: alertmanager
+    ports:
+      - "9093:9093"
+    volumes:
+      - ./alertmanager:/etc/alertmanager
+    command:
+      - "--config.file=/etc/alertmanager/alertmanager.yml"
     depends_on:
       - prometheus
     networks:

@@ -30,7 +30,6 @@ app.use((req, res, next) => {
 
   res.on("finish", () => {
     const duration = new Date() - startTime;
-
     // Use predefined labels when calling observe
     requestDuration.observe(
       { method: req.method, status: res.statusCode },
@@ -71,5 +70,5 @@ async function guage_operator() {
   setInterval(async () => {
     randomguage.set(Math.random());
     await register.metrics();
-  }, 2000);
+  }, 10000);
 }

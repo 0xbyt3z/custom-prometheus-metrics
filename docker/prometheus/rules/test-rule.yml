@@ -1,0 +1,10 @@
+groups:
+- name: alerts
+  rules:
+  - alert: test-alert
+    expr: test_gauge_with_random_values > 0.5
+    for: 2s
+    labels:
+      severity: low
+    annotations:
+      summary: High request latency
