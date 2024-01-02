@@ -12,6 +12,8 @@ scrape_configs:
     static_configs:
       - targets: ['app:7000']
 
+
+
 rule_files:
   - /etc/prometheus/groups/test-rule.yml
 

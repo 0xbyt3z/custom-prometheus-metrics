@@ -13,6 +13,6 @@ route:
 receivers:
   - name: 'email-notifier'
     email_configs:
-      - to: 'rtheekshanafernando@gmail.com'
-        from: 'alertmanager@example.com'
+      - to: 'to@gmail.com'
+        from: 'from@gmail.com'
         smarthost: 'smtp:25'

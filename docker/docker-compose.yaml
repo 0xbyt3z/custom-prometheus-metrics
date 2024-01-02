@@ -42,5 +42,10 @@ services:
     networks:
       - monitoring
 
+  smtp:
+    image: namshi/smtp
+    networks:
+      - monitoring
+
 networks:
   monitoring:

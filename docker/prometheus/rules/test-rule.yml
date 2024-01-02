@@ -8,3 +8,7 @@ groups:
       severity: low
     annotations:
       summary: High request latency
+- name: recorded-rule
+  rules:
+  - record: code:test_gauge_with_random_values:sum
+    expr: test_gauge_with_random_values
